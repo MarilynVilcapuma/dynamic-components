@@ -1,0 +1,24 @@
+.alert {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid #e5e7eb; padding: 10px 12px; box-shadow: var(--shadow);
+
+  &.info    { border-color: color-mix(in oklab, var(--info) 30%, #e5e7eb); }
+  &.success { border-color: color-mix(in oklab, var(--success) 30%, #e5e7eb); }
+  &.warning { border-color: color-mix(in oklab, var(--warning) 30%, #e5e7eb); }
+  &.error   { border-color: color-mix(in oklab, var(--danger) 30%, #e5e7eb); }
+
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--info);
+  }
+  &.success .dot { background: var(--success); }
+  &.warning .dot { background: var(--warning); }
+  &.error   .dot { background: var(--danger); }
+
+  .content { flex: 1; color: var(--text); }
+  .close {
+    border: none; background: transparent; cursor: pointer;
+    font-size: 18px; line-height: 18px; color: var(--muted);
+  }
+}

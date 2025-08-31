@@ -1,0 +1,4 @@
+“En este proyecto los componentes dumb, como Alert, Card y CustomButton, se encargan únicamente de la presentación:
+ mostrar mensajes, tarjetas o botones, sin lógica de negocio. El componente smart, que es el Dashboard, concentra
+  la lógica, maneja los datos de los productos y decide qué mostrar o qué acción ejecutar. De esta forma el smart
+   orquesta y los dumb solo presentan, lo que hace que el código sea más claro, organizado y fácil de mantener.

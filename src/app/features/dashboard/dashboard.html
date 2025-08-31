@@ -1,0 +1,58 @@
+<section class="toolbar">
+  <div class="left">
+    <h2>Dashboard</h2>
+    <p class="muted">Ejemplo de componentes dumb usados desde un smart.</p>
+  </div>
+  <div class="right">
+    <app-custom-button
+      label="Agregar producto"
+      variant="primary"
+      size="md"
+      (clicked)="addMock()">
+    </app-custom-button>
+  </div>
+</section>
+
+<app-alert
+  *ngIf="alert.show"
+  [type]="alert.type"
+  [message]="alert.message"
+  (closed)="closeAlert()">
+</app-alert>
+
+<div class="grid cols-3">
+  <app-card
+    *ngFor="let p of products"
+    [title]="p.name"
+    [subtitle]="'S/ ' + p.price.toFixed(2)"
+    [imageUrl]="p.imageUrl">
+
+    <div card-content>
+      <p class="muted">ID: {{ p.id }}</p>
+      <p *ngIf="p.favorite">⭐ En favoritos</p>
+    </div>
+
+    <div card-actions>
+      <app-custom-button
+        [label]="p.favorite ? 'Quitar favorito' : 'Agregar favorito'"
+        variant="outline"
+        size="sm"
+        (clicked)="toggleFavorite(p)">
+      </app-custom-button>
+
+      <app-custom-button
+        label="Eliminar"
+        variant="secondary"
+        size="sm"
+        (clicked)="removeProduct(p)">
+      </app-custom-button>
+
+      <app-custom-button
+        label="Comprar"
+        variant="primary"
+        size="sm"
+        (clicked)="buy(p)">
+      </app-custom-button>
+    </div>
+  </app-card>
+</div>

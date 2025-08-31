@@ -1,0 +1,15 @@
+<article class="card">
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="" class="card-image" />
+  <header class="card-header" *ngIf="title || subtitle">
+    <h3 class="card-title">{{ title }}</h3>
+    <p class="card-subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+  </header>
+
+  <section class="card-body">
+    <ng-content select="[card-content]"></ng-content>
+  </section>
+
+  <footer class="card-footer">
+    <ng-content select="[card-actions]"></ng-content>
+  </footer>
+</article>
